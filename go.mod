@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/spf13/cobra v1.6.1
-	hz.tools/cli v0.0.0-20230224005149-e5b12cf1bc29
+	hz.tools/cli v0.0.0-20230224011339-06b813475db0
 	hz.tools/fftw v0.0.8
 	hz.tools/fm v0.0.7
 	hz.tools/pulseaudio v0.0.5
@@ -20,5 +20,5 @@ require (
 	golang.org/x/sys v0.5.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	hz.tools/rfcap v0.0.13 // indirect
-	hz.tools/rfzeug v0.0.0-20220822174644-54f50a47c59f // indirect
+	hz.tools/rfzeug v0.0.0-20220923033412-7d67eac704e4 // indirect
 )
