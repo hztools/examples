@@ -56,6 +56,11 @@ var rootCmd = &cobra.Command{
 			return err
 		}
 
+		gain, err := cmd.Flags().GetFloat32("gain")
+		if err != nil {
+			return err
+		}
+
 		downsample, err := cmd.Flags().GetUint("downsample")
 		if err != nil {
 			return err
@@ -117,6 +122,9 @@ var rootCmd = &cobra.Command{
 			if i == 0 {
 				panic("zero read")
 			}
+			for j := 0; j < i; j++ {
+				buf[j] *= gain
+			}
 			if err := speaker.Write(buf[:i]); err != nil {
 				return err
 			}
@@ -140,6 +148,7 @@ func init() {
 	flags.String("bandwidth", "broadcast", "Bandwidth for the fm signal [broadcast|narrowband|<hz>]")
 	flags.Uint("downsample", 8, "Samples to downsample for audio playback")
 	flags.String("sink-name", "", "pulseaudio sink name")
+	flags.Float32("gain", 0.75, "amount of gain on the signal")
 
 	cli.RegisterSDRFlags(rootCmd)
 }
